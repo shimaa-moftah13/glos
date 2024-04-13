@@ -1,16 +1,16 @@
 import { TLoading } from "@customTypes/shared";
 
 type LoadingProps = {
-  status: TLoading;
+  loading: TLoading;
   error: null | string;
-  children: React.ReactNode;
+  children: React.JSX.Element;
 };
 
-const Loading = ({ status, error, children }: LoadingProps) => {
-  if (status === "pending") {
+const Loading = ({ loading, error, children }: LoadingProps) => {
+  if (loading === "pending") {
     return <div>loading please wait</div>;
   }
-  if (status === "failed") {
+  if (loading === "failed") {
     return <div>{error}</div>;
   }
   return <div>{children}</div>;

@@ -2,7 +2,7 @@ import { Row, Col } from "react-bootstrap";
 
 type GridListProps<T> = {
   records: T[];
-  renderItem: (record: T) => React.ReactNode;
+  renderItem: (record: T) => JSX.Element;
 };
 
 const GridList = <T extends { id?: number }>({
@@ -15,12 +15,12 @@ const GridList = <T extends { id?: number }>({
           <Col
             xs={3}
             key={record.id}
-            className="d-flex justify-content-center mb-5 mt-2">
+            className="d-flex justify-content-center mb-5 mt-2"
+          >
             {renderItem(record)}
           </Col>
         ))
       : "there are no records";
-
   return <Row>{renderList}</Row>;
 };
 
