@@ -30,17 +30,13 @@ const Product = memo(({ id, title, price, img, max, quantity }: TProduct) => {
     dispatch(addToCart(id));
     setIsBtnDisabled(true);
   };
-  console.log(typeof price);
-  
   return (
     <div className={product}>
       <div className={productImg}>
         <img src={img} alt={title} />
       </div>
       <h2>{title}</h2>
-      <h3>{price
-      // .toFixed(2)
-      } EGP</h3>
+      <h3>{price} EGP</h3>
       <p className={maximumNotice}>
         {quantityReachedToMax
           ? "You reach to the limit"

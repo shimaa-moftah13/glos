@@ -1,8 +1,11 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
-import { actGetProductsByCatPrefix, productsCleanUp } from "@store/products/productsSlice";
-import { GridList, Heading } from "@components/common";
+import {
+  actGetProductsByCatPrefix,
+  productsCleanUp,
+} from "@store/products/productsSlice";
+import { GridList } from "@components/common";
 import { Product } from "@components/eCommerce";
 import { Loading } from "@components/feedback";
 import { TProduct } from "@customTypes/product";
@@ -28,10 +31,7 @@ const Products = () => {
 
   return (
     <>
-    <Heading>
-      <span className="text-capitalize">{params.prefix} </span> Products
-    </Heading>
-      <Loading loading={loading} error={error}>
+      <Loading status={loading} error={error}>
         <GridList<TProduct>
           records={productsFullInfo}
           renderItem={(record) => <Product {...record} />}
