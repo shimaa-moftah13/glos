@@ -1,4 +1,4 @@
-import { TProduct } from "@customTypes/product";
+import { TProduct } from "@types";
 import styles from "./styles.module.css";
 
 type CartSubtotalPriceProps = { products: TProduct[] };
@@ -17,7 +17,7 @@ const CartSubtotalPrice = ({ products }: CartSubtotalPriceProps) => {
   return (
     <div className={styles.container}>
       <span>Subtotal:</span>
-      <span>{subtotal} EGP</span>
+      <span>{subtotal.toFixed(2)} EGP</span>
     </div>
   );
 };
