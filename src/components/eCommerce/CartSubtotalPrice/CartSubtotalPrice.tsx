@@ -17,7 +17,7 @@ const CartSubtotalPrice = ({ products }: CartSubtotalPriceProps) => {
   return (
     <div className={styles.container}>
       <span>Subtotal:</span>
-      <span>{subtotal.toFixed(2)} EGP</span>
+      <span>{subtotal} EGP</span>
     </div>
   );
 };
