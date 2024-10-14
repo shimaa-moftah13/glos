@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useAppSelector } from "@store/hooks";
 import { useNavigate } from "react-router-dom";
-// import { useAppSelector } from "@store/hooks";
 import Logo from "@assets/svg/wishlist.svg?react";
 
 import styles from "./styles.module.css";

@@ -1,0 +1,80 @@
+
+/* Main container for footer */
+.footer-container {
+  position: absolute;
+  background-color: #33382876;
+  color: #1e1c1c;
+  text-align: center;
+  padding: 60px 0;
+  font-family: "Arial", sans-serif;
+  margin-top: 800px;
+  width: 100%;
+  /* z-index: 20; */
+  left: 0;
+}
+
+/* Logo styling */
+.footer-logo {
+  font-size: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+/* Top navigation links */
+.footer-nav-top {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 20px;
+}
+
+.footer-nav-top a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #1e1c1c;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-nav-top a:hover {
+  color: #d4d4d4;
+}
+
+/* Bottom navigation links */
+.footer-nav-bottom {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.footer-nav-bottom a {
+  font-size: 12px;
+  color: #1e1c1c;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-nav-bottom a:hover {
+  color: #d4d4d4;
+}
+
+/* Social media icons */
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-social svg {
+  font-size: 19px;
+  color: #1e1c1c;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-social svg:hover {
+  color: #818159;
+}

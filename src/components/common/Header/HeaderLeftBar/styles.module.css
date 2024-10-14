@@ -1,10 +1,24 @@
 .headerLeftBar {
   display: flex;
   flex-direction: row;
+  /* position: relative; */
+  /* top: 100px; */
+  /* margin-bottom: 6px; */
+
+
 }
 
 .headerLeftBar > div:first-of-type {
   margin-right: 10px;
-  padding-right: 10px;
-  border-right: 1px solid black;
+ 
+ 
+}
+.cartIcon{
+  width: 25px;
+  margin-right: 20px;
+  /* border-right: 1px solid black; */
+}
+
+.wishlistIcon{
+  width: 25px;
 }

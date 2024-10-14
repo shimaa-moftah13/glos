@@ -4,6 +4,7 @@ import { useAppSelector } from "@store/hooks";
 import { getCartTotalQuantitySelector } from "@store/cart/cartSlice";
 import Logo from "@assets/svg/cart.svg?react";
 
+
 import styles from "./styles.module.css";
 const { container, totalNum, pumpAnimate, iconWrapper } = styles;
 

@@ -3,8 +3,6 @@ import { Form, Button } from "react-bootstrap";
 import { TProduct } from "@types";
 import styles from "./styles.module.css";
 
-const { cartItem, product, productImg, productInfo, cartItemSelection } =
-  styles;
 
 type CartItemProps = TProduct & {
   changeQuantityHandler: (id: number, quantity: number) => void;
@@ -40,32 +38,43 @@ const CartItem = memo(
     };
 
     return (
-      <div className={cartItem}>
-        <div className={product}>
-          <div className={productImg}>
-            <img src={img} alt={title} />
-          </div>
-          <div className={productInfo}>
-            <h2>{title}</h2>
-            <h3>{price} EGP</h3>
-            <Button
-              variant="secondary"
-              style={{ color: "white", width: "100px" }}
-              className="mt-auto"
-              onClick={() => removeItemHandler(id)}
-            >
-              Remove
-            </Button>
-          </div>
+      <>
+        <div className={styles.cartContainer}>
+          <table className={styles.cartTable}>
+            <tbody>
+              <tr>
+                <td>
+                  <img src={img} alt={title} className={styles.cartImage} />
+                </td>
+                <td>{title}</td>
+                <td>{price}</td>
+                <td>
+                  <div className={styles.quantityContainer}>
+                    <span>Quantity</span>
+                    <Form.Select value={quantity} 
+                    onChange={changeQuantity}
+                    className={styles.quantitySelect}>
+                      {renderOptions}
+                    </Form.Select>
+                  </div>
+                </td>
+                <td className={styles.totalPrice}>
+                  <p>98472947</p>
+                </td>
+                <td className={styles.removeButton}>
+                  <Button
+                    variant="secondary"
+                    style={{ color: "white", width: "100px" }}
+                    onClick={() => removeItemHandler(id)}
+                  >
+                    Remove
+                  </Button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
-        <div className={cartItemSelection}>
-          <span className="d-block mb-1">Quantity</span>
-          <Form.Select value={quantity} onChange={changeQuantity}>
-            {renderOptions}
-          </Form.Select>
-        </div>
-      </div>
+      </>
     );
   }
 );

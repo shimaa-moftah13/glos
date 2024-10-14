@@ -1,0 +1,111 @@
+/* ContactForm.css */
+
+.contactContainer {
+    position: absolute;
+    width: 100vw;
+    height: 90vh;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    margin-bottom: 100px;
+  }
+  .contactContainer h1 {
+    position: absolute;
+    left: 70px;
+    top: 70px;
+    font-size: 2rem;
+    color: #2a2a2a;
+    /* margin-bottom: 20px; */
+    font-weight: bold;
+
+
+  }
+  
+  .backgroundImage {
+    background-image: url('../../assets/welleree-ind_product_lower_image.jpg'); /* Add your image path */
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(30%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  
+  .formOverlay {
+    position: absolute;
+    z-index: 2;
+    background-color: rgba(45, 43, 43, 0.18); /* Semi-transparent background */
+    padding: 40px;
+    border-radius: 8px;
+    bottom: 9.375rem;
+    /* text-align: center; */
+    max-width: 1000px;
+  }
+  
+  
+  
+  p {
+    margin-bottom: 20px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ccc;
+  }
+  
+  .form {
+    display: flex;
+    align-items: center;
+    
+    gap: 30px;
+    color: #ccc;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input {
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #3333334a;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    color: #ccc;
+  }
+  .emaiInput{
+    padding: 10px 60px;
+  }
+  
+  .submitButton {
+    padding: 10px 90px;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #ccc;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+  }
+  
+  .submitButton:hover {
+    background-color: #333;
+    color: #ccc;
+  }
+
+  .icons{
+    display: flex;
+    z-index: 10;
+    position: absolute;
+    bottom: 60px;
+    right: 70px;
+    gap: 30px;
+    color: #2a2a2a;
+  }
+  

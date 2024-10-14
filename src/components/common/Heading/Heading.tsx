@@ -1,9 +1,13 @@
 import { memo } from "react";
 
-const Heading = memo(({ title }: { title: string }) => {
+import styles from "./styles.module.css";
+const { heading} = styles;
+
+const Heading = memo(({ title, img }: { title: string, img: string }) => {
   return (
-    <h2 className="mb-3" style={{ fontSize: "26px" }}>
+    <h2 className={heading}>
       {title}
+      {img}
     </h2>
   );
 });

@@ -10,7 +10,7 @@ type HeaderCounterProps = {
   to: string;
 };
 
-const { container, totalNum, pumpAnimate, iconWrapper } = styles;
+const { countContainer, totalNum, pumpAnimate, iconWrapper } = styles;
 
 const HeaderCounter = ({
   totalQuantity,
@@ -36,7 +36,7 @@ const HeaderCounter = ({
   }, [totalQuantity]);
 
   return (
-    <div className={container} onClick={() => navigate(to)}>
+    <div className={countContainer} onClick={() => navigate(to)}>
       <div className={iconWrapper}>
         {svgIcon}
         {totalQuantity > 0 && (

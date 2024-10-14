@@ -11,17 +11,13 @@ import styles from "./styles.module.css";
 const { product, productImg, maximumNotice, wishlistBtn } = styles;
 
 const Product = memo(
-  ({ id, title, price, img, max, quantity, isLiked, isAuthenticated,}: TProduct) => {
-    
-    const dispatch = useAppDispatch();
-
+  ({ id, title, price, img, max, quantity, isLiked, isAuthenticated, }: TProduct) => {
     const [showModal, setShowModal] = useState(false);
+
+    const dispatch = useAppDispatch();
     const [isBtnDisabled, setIsBtnDisabled] = useState(false);
-
     const [isLoading, setIsLoading] = useState(false);
-
     const currentRemainingQuantity = max - (quantity ?? 0);
-
     const quantityReachedToMax = currentRemainingQuantity <= 0 ? true : false;
 
     useEffect(() => {
@@ -42,7 +38,9 @@ const Product = memo(
     };
 
     const likeToggleHandler = () => {
-      if (isAuthenticated) {
+      if (!isAuthenticated) {
+        setShowModal(true);
+      } else {
         if (!isLoading) {
           setIsLoading(true);
           dispatch(actLikeToggle(id))
@@ -50,8 +48,6 @@ const Product = memo(
             .then(() => setIsLoading(false))
             .catch(() => setIsLoading(false));
         }
-      } else {
-        setShowModal(true);
       }
     };
 
@@ -80,14 +76,15 @@ const Product = memo(
             <img src={img} alt={title} />
           </div>
           <h2>{title}</h2>
-          <h3>{price} EGP</h3>
           <p className={maximumNotice}>
             {quantityReachedToMax
               ? "You reached to the limit"
               : `You can add ${currentRemainingQuantity} item(s)`}
           </p>
+          <h3>{price} EGP</h3>
+         
           <Button
-            variant="info"
+            // variant="#3B4030"
             style={{ color: "white" }}
             onClick={addToCartHandler}
             disabled={isBtnDisabled || quantityReachedToMax}

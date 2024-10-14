@@ -1,0 +1,101 @@
+/* .aboutUs
+
+
+.aboutUsImg{
+    /* background-color: blueviolet; */
+    /* position: relative; */
+    /* padding: 6.25rem; */
+    /* margin: 200px 0;
+}
+
+.largeimg img{
+    position: relative;
+    width: 60%;
+    height: 90%;
+    margin-left: 15.75rem;
+    background-size: cover;
+
+} */ 
+
+/* Container for the whole section */
+.aboutUsContainer {
+    height: 700px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 70px;
+    /* width: 90%; */
+    background-color: #f5f5ef;
+    font-family: "Arial", sans-serif;
+    margin-bottom: 100px;
+  }
+  
+  /* Text section styling */
+  .textContent {
+    max-width: 40%;
+  }
+  
+  .tagline {
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #76715e;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  
+  .title {
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .title em {
+    font-style: italic;
+  }
+  
+  .description {
+    font-size: 16px;
+    color: #6d6d6d;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  
+  /* Button styling */
+  .readMoreBtn {
+    background-color: #c0b8a4;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .readMoreBtn:hover {
+    background-color: #a89f8a;
+  }
+  
+  /* Image section styling */
+  .imageContent {
+    position: relative;
+    max-width: 35%;
+  }
+  
+  .showcaseImage {
+    
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  .small{
+    position: absolute;
+    max-width: 220px;
+    border-radius: 8px;
+    left: -180px;
+    bottom: 40px;
+  }
+  

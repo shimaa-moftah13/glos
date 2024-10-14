@@ -10,14 +10,16 @@ const Wishlist = lazy(() => import("@pages/Wishlist"));
 const Categories = lazy(() => import("@pages/Categories"));
 const Cart = lazy(() => import("@pages/Cart"));
 const Products = lazy(() => import("@pages/Products"));
-const AboutUs = lazy(() => import("@pages/AboutUs"));
+const AboutUs = lazy(() => import("@pages/AboutUs/AboutUs"));
 const Login = lazy(() => import("@pages/Login"));
 const Register = lazy(() => import("@pages/Register"));
-const Profile = lazy(() => import("@pages/Profile"));
+const Profile = lazy(() => import("@pages/Profile/Profile"));
+// const CheckoutForm = lazy(() => import("@components/eCommerce/CheckoutForm"))
+// import StripePayment from "@components/eCommerce/CheckoutForm/StripePayment";
 import Error from "@pages/Error";
-
-// protect route
 import ProtectedRoute from "@components/Auth/ProtectedRoute";
+// import AddAddressForm from "@components/Profile/Address/AddAddressForm";
+// import { CheckoutForm } from "@components/eCommerce";
 
 const router = createBrowserRouter([
   {
@@ -55,7 +57,9 @@ const router = createBrowserRouter([
         path: "/wishlist",
         element: (
           <PageSuspenseFallback>
-            <Wishlist />
+            <ProtectedRoute>
+              <Wishlist />
+            </ProtectedRoute>
           </PageSuspenseFallback>
         ),
       },
@@ -112,15 +116,46 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "profile",
+        path: 'profile',
         element: (
-          <ProtectedRoute>
-            <PageSuspenseFallback>
+          <PageSuspenseFallback>
+            <ProtectedRoute>
               <Profile />
-            </PageSuspenseFallback>
-          </ProtectedRoute>
+            </ProtectedRoute>
+          </PageSuspenseFallback>
         ),
       },
+      {
+        path: 'profile/:activepage',
+        element: (
+          <PageSuspenseFallback>
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          </PageSuspenseFallback>
+        ),
+      },
+      // {
+      //   path: 'profile/addaddress',
+      //   element: (
+      //     <PageSuspenseFallback>
+      //       <ProtectedRoute>
+      //         <AddAddressForm />
+      //       </ProtectedRoute>
+      //     </PageSuspenseFallback>
+      //   ),
+      // },
+      // {
+      //   path: 'checkoutform',
+      //   element: (
+      //     <PageSuspenseFallback>
+      //       <ProtectedRoute>
+      //         <StripePayment/>
+      //       </ProtectedRoute>
+      //     </PageSuspenseFallback>
+      //   ),
+      // },
+      
     ],
   },
 ]);

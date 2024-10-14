@@ -1,43 +1,53 @@
 .product {
-  width: 130px;
+  width: 250px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   position: relative;
+  border: 1px solid ;
+  /* background-color: #f2f2f2; */
 }
 
 .productImg {
-  height: 180px;
-  background-color: #f2f2f2;
+  height: 300px;
+  align-items: center;
   display: block;
 }
 
 .productImg img {
-  height: 100%;
+  height: 90%;
   width: 100%;
+  object-fit: cover;
 }
 
 .product h2 {
   font-size: 14px;
-  margin-top: 9px;
-  margin-bottom: 12px;
+  margin-top: -20px;
+  margin-bottom: 5px;
   width: 100%;
+  /* margin-left: 10px; */
+  text-align: center;
 }
 
 .product h3 {
   font-size: 13px;
+  margin-left: 10px;
 }
 
 .maximumNotice {
   font-size: 12px;
-  margin-bottom: 7px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #2B2F22;
+  /* margin-left: 10px; */
 }
 
 .wishlistBtn {
   position: absolute;
-  top: 7px;
+  /* top: 7px; */
   right: 7px;
-  background-color: white;
+  bottom: 40px;
+  /* background-color: white; */
   width: 28px;
   height: 28px;
   border-radius: 5px;
@@ -50,5 +60,14 @@
 .wishlistBtn:hover {
   box-shadow: 0px 0px 10px -3px rgba(0, 0, 0, 0.4);
 }
+.product button{
+  background-color: #96968C;
+  border: 0;
+  border-radius: 0;
+  
+}
+.product button:hover{
+  background-color: #2B2F22;
 
-
+  
+}

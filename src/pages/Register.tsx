@@ -7,35 +7,27 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { signUpSchema, signUpType } from "@validations/signUpSchema";
 import useCheckEmailAvailability from "@hooks/useCheckEmailAvailability";
 import { Heading } from "@components/common";
-import { Input } from "@components/Form";
+import { Input } from "@components/controllers";
 import { Form, Button, Row, Col, Spinner } from "react-bootstrap";
 
 const Register = () => {
   const dispatch = useAppDispatch();
 
-  const navigate = useNavigate();
-
   const { loading, error, accessToken } = useAppSelector((state) => state.auth);
+
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
     getFieldState,
     trigger,
+    reset,
     formState: { errors },
   } = useForm<signUpType>({
     mode: "onBlur",
     resolver: zodResolver(signUpSchema),
   });
-
-  const submitForm: SubmitHandler<signUpType> = async (data) => {
-    const { firstName, lastName, email, password } = data;
-    dispatch(actAuthRegister({ firstName, lastName, email, password }))
-      .unwrap()
-      .then(() => {
-        navigate("/login?message=account_created");
-      });
-  };
 
   const {
     emailAvailabilityStatus,
@@ -43,6 +35,15 @@ const Register = () => {
     checkEmailAvailability,
     resetCheckEmailAvailability,
   } = useCheckEmailAvailability();
+
+  const submitForm: SubmitHandler<signUpType> = (data) => {
+    const { firstName, lastName, email, password } = data;
+    dispatch(actAuthRegister({ firstName, lastName, email, password }))
+      .unwrap()
+      .then(() => {
+        navigate("/login?message=account_created");
+      });
+  };
 
   const emailOnBlurHandler = async (e: React.FocusEvent<HTMLInputElement>) => {
     await trigger("email");
@@ -62,8 +63,15 @@ const Register = () => {
   useEffect(() => {
     return () => {
       dispatch(resetUI());
+      reset({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      });
     };
-  }, [dispatch]);
+  }, [reset, dispatch]);
 
   if (accessToken) {
     return <Navigate to="/" />;
@@ -128,7 +136,6 @@ const Register = () => {
               error={errors.confirmPassword?.message}
             />
             <Button
-            
               variant="info"
               type="submit"
               style={{ color: "white" }}
@@ -136,18 +143,20 @@ const Register = () => {
                 emailAvailabilityStatus === "checking"
                   ? true
                   : false || loading === "pending"
+                  ? true
+                  : false
               }
             >
               {loading === "pending" ? (
                 <>
-                  <Spinner animation="border" size="sm"></Spinner> Loading...
+                  <Spinner animation="border" size="sm" /> Loading...
                 </>
               ) : (
                 "Submit"
               )}
             </Button>
             {error && (
-              <p style={{ color: "#DC3545", marginTop: "10px" }}>{error}</p>
+              <p style={{ color: "#DC3545", marginTop: "20px" }}>{error}</p>
             )}
           </Form>
         </Col>

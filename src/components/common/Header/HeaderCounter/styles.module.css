@@ -1,31 +1,33 @@
-.container {
+.countContainer {
   align-self: flex-end;
   cursor: pointer;
   display: flex;
   align-items: center;
+  /* position: ; */
 }
 
-.container h3 {
+.countContainer h3 {
   font-size: 15px;
   margin-left: 4px;
   margin-bottom: 0;
 }
 
 .iconWrapper {
-  position: relative;
+  /* position: relative; */
 }
 
 .totalNum {
-  background-color: #0dcaf0;
-  height: 20px;
-  width: 20px;
+  background-color: #ccc;
+  height: 15px;
+  width: 15px;
   border-radius: 50%;
   text-align: center;
   border: 1px solid;
   position: absolute;
-  top: -11px;
-  right: -5px;
-  font-size: 12px;
+  top:15px;
+  margin-left: 15px;
+  font-size: 10px;
+  color: black;
 }
 
 .pumpAnimate {

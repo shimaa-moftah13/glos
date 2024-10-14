@@ -1,9 +1,27 @@
+import { useAppDispatch } from "@store/hooks"; 
+import { actPlaceOrder } from "@store/orders/ordersSlice";
+import { useState } from "react";
 import { TProduct } from "@types";
+import { Button, Modal, Spinner } from "react-bootstrap";
 import styles from "./styles.module.css";
+import { clearCartAfterPlaceOrder } from "@store/cart/cartSlice";
 
-type CartSubtotalPriceProps = { products: TProduct[] };
 
-const CartSubtotalPrice = ({ products }: CartSubtotalPriceProps) => {
+type CartSubtotalPriceProps = {
+  products: TProduct[];
+  userAccessToken: string | null;
+};
+
+const CartSubtotalPrice = ({
+  products,
+  userAccessToken,
+}: CartSubtotalPriceProps) => {
+  const dispatch = useAppDispatch()
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [showModal, setShowModal] = useState(false)
+
   const subtotal = products.reduce((accumulator, el) => {
     const price = el.price;
     const quantity = el.quantity;
@@ -14,12 +32,81 @@ const CartSubtotalPrice = ({ products }: CartSubtotalPriceProps) => {
     }
   }, 0);
 
+  const modalHandler = () => {
+    setShowModal(!showModal);
+    setError(null);
+  };
+
+  const placeOrderHandler = () => {
+    setLoading(true);
+    dispatch(actPlaceOrder(subtotal))
+      .unwrap()
+      .then(() => {
+        dispatch(clearCartAfterPlaceOrder());
+        setShowModal(false);
+      })
+      .catch((error) => {
+        setError(error);
+      })
+      .finally(() => setLoading(false));
+  };
+
   return (
-    <div className={styles.container}>
-      <span>Subtotal:</span>
-      <span>{subtotal} EGP</span>
-    </div>
+    <>
+      <Modal show={showModal} onHide={modalHandler} backdrop="static">
+        <Modal.Header closeButton>
+          <Modal.Title>Placing Order</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Are you sure you want to place order with Subtotal:{" "}
+          {subtotal.toFixed(2)} EGP
+          {!loading && error && (
+            <p style={{ color: "#DC3545", marginTop: "10px" }}>{error}</p>
+          )}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={modalHandler}>
+            Close
+          </Button>
+          <Button
+            variant="info"
+            style={{ color: "white" }}
+            onClick={placeOrderHandler}
+          >
+            {loading ? (
+              <>
+                <Spinner animation="border" size="sm"></Spinner> Loading...
+              </>
+            ) : (
+              "Confirm"
+            )}
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      <div className={styles.container}>
+        <div className={styles.total}>
+          <span>Subtotal:</span>
+          <span>{subtotal} EGP</span>
+        </div>
+      </div>
+
+      {userAccessToken && (
+        <div className={styles.container}>
+          <span></span>
+          <div className={styles.button}>
+            <Button 
+            className={styles.checkoutButton}
+            onClick={modalHandler}>
+              Place Order
+              </Button>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 
 export default CartSubtotalPrice;
+
+
