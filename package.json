@@ -2,7 +2,7 @@
   "name": "ecommerce-front",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/shimaa-moftah13/ecommerce-2.git",
+  "homepage": "https://github.com/shimaa-moftah13/glos.git",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
@@ -26,6 +26,8 @@
     "cors": "^2.8.5",
     "express": "^4.21.0",
     "lottie-react": "^2.4.0",
+    "lottie-web": "^5.12.2",
+    "lottie-web-light": "^1.1.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.0",
     "react-content-loader": "^7.0.0",

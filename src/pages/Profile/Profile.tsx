@@ -1,7 +1,7 @@
 import { AccountSettings, UserSidebar, ChangePassword, Orders } from "@components/Profile";
 import styles from "./styles.module.css"
 import { useParams } from "react-router-dom";
-import Address from "@components/Profile/Address/Address";
+// import Address from "@components/Profile/Address/Address";
 
 
 
@@ -21,7 +21,7 @@ const Profile = () => {
    <div className={right}>
     {activepage === 'accountsettings' && <AccountSettings/>}
     {activepage === 'changepassword' && <ChangePassword/>}
-    {activepage === 'address' && <Address/>}
+    {/* {activepage === 'address' && <Address/>} */}
     {activepage === 'orders' && <Orders/>}
    </div>
 

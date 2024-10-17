@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import { Header, Footer } from "@components/common";
 
 import styles from "./styles.module.css";
-const { container, wrapper } = styles;
+const {  wrapper } = styles;
 
 const MainLayout = () => {
   return (

@@ -2,7 +2,7 @@ import useCart from "@hooks/useCart";
 // import { Heading } from "@components/common";
 import { Loading, LottieHandler } from "@components/feedback";
 import { CartItemList, CartSubtotalPrice } from "@components/eCommerce";
-import bunner from "@assets/pexels-arjunadinata-15157998.jpg";
+import bunner from "@assets/pexels-ron-lach-10121693.jpg";
 
 import styles from "@components/eCommerce/CartItem/styles.module.css";
 // import CheckoutForm from "@components/eCommerce/CheckoutForm/CheckoutForm";

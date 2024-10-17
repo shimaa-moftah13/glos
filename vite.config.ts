@@ -21,4 +21,17 @@ export default defineConfig({
     },
   },
   plugins: [react(), svgr()],
+  build: {
+    chunkSizeWarningLimit: 1000,
+
+      rollupOptions: {
+        // Suppress eval warnings
+        onwarn(warning, warn) {
+          if (warning.code === 'EVAL') return;
+          warn(warning);
+        },
+      },
+
+  },
+  
 });

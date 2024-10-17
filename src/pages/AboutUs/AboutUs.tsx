@@ -1,9 +1,5 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import img1 from "@assets/pexels-lilartsy-8888721.jpg"
-import img2 from "@assets/pexels-cottonbro-5681439.jpg"
-import img3 from "@assets/pexels-sunsetoned-6431183.jpg"
+
+
 import img4 from "@assets/pexels-ron-lach-10121693.jpg"
 import smallImg from "@assets/download (2).jfif"
 

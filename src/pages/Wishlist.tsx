@@ -1,9 +1,9 @@
 import useWishlist from "@hooks/useWishlist";
-import { GridList, Heading } from "@components/common";
+import { GridList } from "@components/common";
 import { Product } from "@components/eCommerce";
 import { Loading } from "@components/feedback";
 import { TProduct } from "@types";
-import bunner from "@assets/pexels-arjunadinata-15157998.jpg";
+import bunner from "@assets/pexels-ron-lach-10121693.jpg";
 import "../styles/global.css"
 
 const Wishlist = () => {

@@ -1,25 +1,23 @@
 
-import AddressList from './AddressList'
-import AddAddressForm from './AddAddressForm'
-import { useState } from 'react';
+// import { useState } from 'react';
 
-const Address: React.FC  = () => {
+// const Address: React.FC  = () => {
 
-  const [updated, setUpdated] = useState(false);
+//   const [updated, setUpdated] = useState(false);
 
-  const handleUpdate = () => {
-    setUpdated(!updated);  // toggle to re-render AddressList
-  };
+//   const handleUpdate = () => {
+//     setUpdated(!updated);  // toggle to re-render AddressList
+//   };
 
-  return (
-    <div>
+//   return (
+//     <div>
       
-        <AddressList/>
-        <AddAddressForm onAdd={handleUpdate}/>
+//         <AddressList/>
+//         <AddAddressForm onAdd={handleUpdate}/>
 
       
-    </div>
-  )
-}
+//     </div>
+//   )
+// }
 
-export default Address
+// export default Address
